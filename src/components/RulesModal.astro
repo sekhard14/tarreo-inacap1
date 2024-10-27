@@ -1,0 +1,65 @@
+---
+---
+<div id="rulesModal" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-4">
+    <div class="bg-dark/95 rounded-2xl max-w-2xl w-full p-8 shadow-2xl" data-aos="zoom-in">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-permanent-marker text-inacap-red">Bases del Torneo</h2>
+        <button id="closeRules" class="text-2xl hover:text-inacap-red transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="space-y-6 overflow-y-auto max-h-[60vh] pr-4">
+        <section>
+          <h3 class="text-xl font-bold mb-3">Reglas Generales</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li>Todos los participantes deben ser estudiantes activos de INACAP</li>
+            <li>Es obligatorio presentar credencial estudiantil al momento del registro</li>
+            <li>Comportamiento deportivo y respetuoso en todo momento</li>
+            <li>Prohibido el uso de hacks o cualquier software de trampa</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-3">Equipamiento</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li>Para Valorant y Fortnite: Traer PC propio con los juegos instalados</li>
+            <li>Para juegos de consola: El equipamiento será proporcionado</li>
+            <li>Para juegos de cartas: Traer mazo propio</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3 class="text-xl font-bold mb-3">Premios</h3>
+          <ul class="list-disc list-inside space-y-2 text-gray-300">
+            <li>1er Lugar: Periféricos Gaming Premium</li>
+            <li>2do Lugar: Accesorios Gaming</li>
+            <li>3er Lugar: Merchandising exclusivo</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('rulesModal');
+  const closeBtn = document.getElementById('closeRules');
+  const toggleBtn = document.getElementById('toggleRules');
+
+  toggleBtn?.addEventListener('click', () => {
+    modal?.classList.remove('hidden');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+</script>

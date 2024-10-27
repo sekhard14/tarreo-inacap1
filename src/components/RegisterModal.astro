@@ -1,0 +1,105 @@
+---
+const careers = [
+  "Ingeniería en Informática",
+  "Analista Programador",
+  "Ingeniería en Conectividad y Redes",
+  "Ingeniería Industrial",
+  "Ingeniería Mecánica",
+  "Técnico en Electricidad",
+  "Técnico en Mecánica Automotriz"
+];
+---
+
+<div id="registerModal" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+  <div class="absolute inset-0 flex items-center justify-center p-4">
+    <div class="bg-dark/95 rounded-2xl max-w-2xl w-full p-8 shadow-2xl" data-aos="zoom-in">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-permanent-marker text-inacap-red">Inscripción</h2>
+        <button id="closeRegister" class="text-2xl hover:text-inacap-red transition-colors">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <form class="space-y-6">
+        <div>
+          <label class="block text-sm font-medium mb-2">Nombre Completo</label>
+          <input 
+            type="text" 
+            class="w-full bg-dark border border-inacap-red/20 rounded-lg p-3 focus:border-inacap-red focus:ring-1 focus:ring-inacap-red transition-colors"
+            required
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Email Institucional</label>
+          <input 
+            type="email" 
+            class="w-full bg-dark border border-inacap-red/20 rounded-lg p-3 focus:border-inacap-red focus:ring-1 focus:ring-inacap-red transition-colors"
+            required
+            pattern=".*@inacap\.cl"
+            title="Debe ser un email @inacap.cl"
+          >
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Carrera</label>
+          <div class="relative">
+            <input 
+              type="text" 
+              list="careers"
+              class="w-full bg-dark border border-inacap-red/20 rounded-lg p-3 focus:border-inacap-red focus:ring-1 focus:ring-inacap-red transition-colors"
+              required
+            >
+            <datalist id="careers">
+              {careers.map(career => (
+                <option value={career} />
+              ))}
+            </datalist>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Juego Principal</label>
+          <select 
+            class="w-full bg-dark border border-inacap-red/20 rounded-lg p-3 focus:border-inacap-red focus:ring-1 focus:ring-inacap-red transition-colors"
+            required
+          >
+            <option value="">Selecciona un juego</option>
+            <option value="valorant">Valorant</option>
+            <option value="lol">League of Legends</option>
+            <option value="fortnite">Fortnite</option>
+            <option value="fc24">FC 24</option>
+            <option value="mk11">Mortal Kombat 11</option>
+            <option value="pokemon">Pokémon TCG</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-inacap-red py-3 rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center space-x-2 group">
+          <i class="fas fa-gamepad group-hover:rotate-12 transition-transform"></i>
+          <span>Inscribirme</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('registerModal');
+  const closeBtn = document.getElementById('closeRegister');
+  const openBtn = document.getElementById('openRegister');
+
+  openBtn?.addEventListener('click', () => {
+    modal?.classList.remove('hidden');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
+</script>

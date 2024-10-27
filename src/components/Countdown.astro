@@ -1,0 +1,54 @@
+---
+---
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-dark to-inacap-red/20 p-8 shadow-2xl border border-inacap-red/20" data-aos="fade-up">
+  <div class="absolute -top-10 -left-10 w-40 h-40 bg-inacap-red/10 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-inacap-red/10 rounded-full blur-3xl"></div>
+  
+  <h3 class="text-2xl font-permanent-marker text-center mb-6 relative">
+    <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+      Tiempo Restante
+    </span>
+  </h3>
+  
+  <div class="grid grid-cols-4 gap-4 text-center relative">
+    <div class="countdown-item group">
+      <span class="days text-4xl font-press-start text-inacap-red group-hover:scale-110 transition-transform block">00</span>
+      <span class="text-sm mt-2 block">Días</span>
+    </div>
+    <div class="countdown-item group">
+      <span class="hours text-4xl font-press-start text-inacap-red group-hover:scale-110 transition-transform block">00</span>
+      <span class="text-sm mt-2 block">Horas</span>
+    </div>
+    <div class="countdown-item group">
+      <span class="minutes text-4xl font-press-start text-inacap-red group-hover:scale-110 transition-transform block">00</span>
+      <span class="text-sm mt-2 block">Minutos</span>
+    </div>
+    <div class="countdown-item group">
+      <span class="seconds text-4xl font-press-start text-inacap-red group-hover:scale-110 transition-transform block">00</span>
+      <span class="text-sm mt-2 block">Segundos</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  function updateCountdown() {
+    const targetDate = new Date('2024-11-08T21:00:00').getTime();
+    
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      document.querySelector('.days').textContent = days.toString().padStart(2, '0');
+      document.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+      document.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+      document.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+    }, 1000);
+  }
+
+  document.addEventListener('DOMContentLoaded', updateCountdown);
+</script>

@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schedule = [
+  {
+    time: '21:00',
+    date: '8 de Noviembre',
+    events: [
+      {
+        game: 'Valorant',
+        details: 'Inicio fase de grupos',
+        platform: 'PC (Traer equipo propio)',
+        icon: 'fas fa-desktop'
+      }
+    ]
+  },
+  {
+    time: '22:30',
+    date: '8 de Noviembre',
+    events: [
+      {
+        game: 'League of Legends',
+        details: 'Torneo 5v5',
+        platform: 'PC Lab INACAP',
+        icon: 'fas fa-laptop'
+      }
+    ]
+  },
+  {
+    time: '00:00',
+    date: '9 de Noviembre',
+    events: [
+      {
+        game: 'Pokémon TCG',
+        details: 'Torneo formato estándar',
+        platform: 'Juego de cartas',
+        icon: 'fas fa-cards'
+      }
+    ]
+  }
+  // Add more schedule items
+];
+---
+
+<Layout title="Cronograma - Tarreo INACAP 2024">
+  <main class="pt-20">
+    <section class="py-20 bg-gradient-to-b from-dark to-inacap-red/10">
+      <div class="container mx-auto px-4">
+        <h1 class="text-5xl font-permanent-marker text-center mb-12">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+            Cronograma
+          </span>
+        </h1>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="relative">
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-inacap-red/20"></div>
+            
+            {schedule.map((item, index) => (
+              <div class="relative mb-8" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
+                <div class="flex items-center mb-2">
+                  <div class="bg-inacap-red w-4 h-4 rounded-full absolute left-1/2 transform -translate-x-1/2"></div>
+                </div>
+                
+                <div class={`bg-dark/50 rounded-xl p-6 border border-inacap-red/20 ${
+                  index % 2 === 0 ? 'mr-auto' : 'ml-auto'
+                } w-[calc(50%-2rem)]`}>
+                  <div class="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 class="text-xl font-bold">{item.time}</h3>
+                      <p class="text-sm text-gray-400">{item.date}</p>
+                    </div>
+                  </div>
+                  
+                  {item.events.map(event => (
+                    <div class="space-y-2">
+                      <h4 class="font-bold text-inacap-red">{event.game}</h4>
+                      <p>{event.details}</p>
+                      <div class="flex items-center space-x-2 text-sm text-gray-400">
+                        <i class={event.icon}></i>
+                        <span>{event.platform}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

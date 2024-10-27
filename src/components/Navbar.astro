@@ -1,0 +1,71 @@
+---
+const menuItems = [
+  { name: 'Inicio', href: '/', icon: 'fas fa-home' },
+  { name: 'Equipos', href: '/teams', icon: 'fas fa-users' },
+  { name: 'Cronograma', href: '/schedule', icon: 'fas fa-calendar-alt' },
+  { name: 'Reglamento', href: '#', icon: 'fas fa-scroll', id: 'toggleRules' },
+  { name: 'Galería', href: '/gallery', icon: 'fas fa-images' },
+];
+---
+
+<nav class="fixed w-full bg-dark/95 backdrop-blur-sm z-50 border-b border-inacap-red/20">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-20">
+      <a href="/" class="flex items-center space-x-3">
+        <img src="/inacap-logo.svg" alt="INACAP Logo" class="h-12">
+        <span class="font-permanent-marker text-xl">Tarreo 2024</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        {menuItems.map(item => (
+          <a 
+            href={item.href} 
+            id={item.id}
+            class="flex items-center space-x-2 text-white hover:text-inacap-red transition-colors group"
+          >
+            <i class={`${item.icon} text-lg group-hover:scale-110 transition-transform`}></i>
+            <span>{item.name}</span>
+          </a>
+        ))}
+      </div>
+
+      <button class="bg-inacap-red px-6 py-2 rounded-full hover:bg-red-700 transition-colors flex items-center space-x-2">
+        <i class="fas fa-gamepad"></i>
+        <span>Inscríbete</span>
+      </button>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-2xl" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden hidden bg-dark/95 border-t border-inacap-red/20" id="mobileMenu">
+    <div class="container mx-auto px-4 py-4">
+      {menuItems.map(item => (
+        <a 
+          href={item.href} 
+          id={`mobile-${item.id}`}
+          class="flex items-center space-x-3 py-3 text-white hover:text-inacap-red transition-colors"
+        >
+          <i class={`${item.icon} text-lg`}></i>
+          <span>{item.name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    const icon = mobileMenuBtn.querySelector('i');
+    icon?.classList.toggle('fa-bars');
+    icon?.classList.toggle('fa-times');
+  });
+</script>

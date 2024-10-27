@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Countdown from '../components/Countdown.astro';
+import GameCard from '../components/GameCard.astro';
+import RegisterModal from '../components/RegisterModal.astro';
+
+const games = [
+  {
+    title: 'League of Legends',
+    image: '/images/games/lol.svg',
+    icon: 'fab fa-fantasy-flight-games',
+    platform: 'PC Lab INACAP',
+    description: 'Forma tu equipo de 5 jugadores y demuestra tu valía en la Grieta del Invocador.'
+  },
+  {
+    title: 'Mortal Kombat 11',
+    image: '/images/games/mk11.svg',
+    icon: 'fas fa-fist-raised',
+    platform: 'PS5',
+    description: 'Torneo 1vs1 con reglas oficiales. ¡Demuestra tus habilidades!'
+  },
+  {
+    title: 'Fortnite',
+    image: '/images/games/fortnite.svg',
+    icon: 'fas fa-gamepad',
+    platform: 'PC (Traer equipo)',
+    description: 'Competencia en solitario. ¡Que gane el mejor!'
+  },
+  {
+    title: 'FC 24',
+    image: '/images/games/fc24.svg',
+    icon: 'fas fa-futbol',
+    platform: 'PS5',
+    description: 'Torneo 1vs1 con equipos internacionales.'
+  },
+  {
+    title: 'Valorant',
+    image: '/images/games/valorant.svg',
+    icon: 'fas fa-crosshairs',
+    platform: 'PC (Traer equipo)',
+    description: 'Competencia por equipos 5vs5. ¡Demuestra tu puntería!'
+  },
+  {
+    title: 'Pokémon TCG',
+    image: '/images/games/pokemon.svg',
+    icon: 'fas fa-cards-blank',
+    platform: 'Juego de Cartas',
+    description: 'Torneo formato estándar. Trae tu mazo.'
+  }
+];
+---
+
+<Layout title="Tarreo INACAP Osorno 2024">
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/images/hero-bg.jpg')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark/90 via-dark/70 to-dark/90"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative z-10" data-aos="fade-up">
+        <div class="text-center mb-12 relative">
+          <div class="absolute -inset-4 bg-gradient-to-r from-inacap-red/20 to-dark/20 blur-3xl -skew-y-6"></div>
+          <h1 class="relative">
+            <span class="block text-7xl font-permanent-marker mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white via-inacap-red to-white transform -rotate-2">
+              Tarreo
+            </span>
+            <span class="block text-6xl font-permanent-marker bg-clip-text text-transparent bg-gradient-to-r from-inacap-red to-white rotate-1">
+              INACAP
+            </span>
+            <span class="block text-5xl font-permanent-marker text-white/90 mt-2 -rotate-1">
+              Osorno 2024
+            </span>
+          </h1>
+        </div>
+        <Countdown />
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-2xl text-white/50"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-dark relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-dark via-dark/50 to-dark"></div>
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-permanent-marker text-center mb-12">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+            Sobre el Evento
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6" data-aos="fade-right">
+            <p class="text-lg text-gray-300">
+              El <span class="text-inacap-red font-bold">Tarreo INACAP Osorno 2024</span> es el evento gaming más importante del sur de Chile, reuniendo a estudiantes apasionados por los videojuegos y los esports.
+            </p>
+            <p class="text-lg text-gray-300">
+              Durante más de 11 horas de competencia intensa, los participantes podrán demostrar sus habilidades en diversos juegos, desde títulos competitivos hasta juegos de cartas coleccionables.
+            </p>
+            <div class="flex items-center space-x-4">
+              <button id="openRegister" class="bg-inacap-red px-8 py-3 rounded-full hover:bg-red-700 transition-colors flex items-center space-x-2 group">
+                <i class="fas fa-gamepad group-hover:rotate-12 transition-transform"></i>
+                <span>¡Inscríbete Ahora!</span>
+              </button>
+              <a href="#games" class="px-8 py-3 rounded-full border border-inacap-red/20 hover:border-inacap-red transition-colors">
+                Ver Juegos
+              </a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4" data-aos="fade-left">
+            <div class="space-y-4">
+              <div class="bg-gradient-to-br from-inacap-red/20 to-dark p-6 rounded-xl">
+                <i class="fas fa-users text-3xl text-inacap-red mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Para Estudiantes</h3>
+                <p class="text-gray-400">Exclusivo para estudiantes activos de INACAP</p>
+              </div>
+              <div class="bg-gradient-to-br from-inacap-red/20 to-dark p-6 rounded-xl">
+                <i class="fas fa-trophy text-3xl text-inacap-red mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Grandes Premios</h3>
+                <p class="text-gray-400">Periféricos gaming y más</p>
+              </div>
+            </div>
+            <div class="space-y-4 mt-8">
+              <div class="bg-gradient-to-br from-inacap-red/20 to-dark p-6 rounded-xl">
+                <i class="fas fa-clock text-3xl text-inacap-red mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">11 Horas</h3>
+                <p class="text-gray-400">De gaming intenso</p>
+              </div>
+              <div class="bg-gradient-to-br from-inacap-red/20 to-dark p-6 rounded-xl">
+                <i class="fas fa-headset text-3xl text-inacap-red mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Competitivo</h3>
+                <p class="text-gray-400">Ambiente profesional</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-20 bg-gradient-to-b from-dark to-dark/50 relative">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-permanent-marker text-center mb-12">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+            Juegos
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {games.map(game => <GameCard {...game} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="py-20 bg-gradient-to-b from-dark/50 to-dark relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('/images/prizes-bg.jpg')] bg-cover bg-center opacity-10"></div>
+      <div class="container mx-auto px-4 relative">
+        <h2 class="text-4xl font-permanent-marker text-center mb-12">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+            Premios
+          </span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="relative group" data-aos="fade-up">
+            <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
+              <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">1°</div>
+              <i class="fas fa-keyboard text-4xl text-inacap-red mb-4 group-hover:scale-110 transition-transform"></i>
+              <h3 class="text-xl font-bold mb-4">Periféricos Gaming</h3>
+              <ul class="text-gray-300 space-y-2">
+                <li>Teclado Mecánico RGB</li>
+                <li>Mouse Gaming Pro</li>
+                <li>Auriculares 7.1</li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+            <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
+              <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">2°</div>
+              <i class="fas fa-headset text-4xl text-inacap-red mb-4 group-hover:scale-110 transition-transform"></i>
+              <h3 class="text-xl font-bold mb-4">Accesorios Premium</h3>
+              <ul class="text-gray-300 space-y-2">
+                <li>Mousepad XL</li>
+                <li>Auriculares Gaming</li>
+                <li>Soporte para Auriculares</li>
+              </ul>
+            </div>
+          </div>
+          <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+            <div class="absolute inset-0 bg-gradient-to-r from-inacap-red to-dark rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="bg-dark/50 p-8 rounded-xl text-center border border-inacap-red/20 relative">
+              <div class="text-4xl font-permanent-marker mb-4 text-inacap-red">3°</div>
+              <i class="fas fa-gift text-4xl text-inacap-red mb-4 group-hover:scale-110 transition-transform"></i>
+              <h3 class="text-xl font-bold mb-4">Pack Gamer</h3>
+              <ul class="text-gray-300 space-y-2">
+                <li>Mouse Gaming</li>
+                <li>Mousepad</li>
+                <li>Merchandising Exclusivo</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <RegisterModal />
+</Layout>

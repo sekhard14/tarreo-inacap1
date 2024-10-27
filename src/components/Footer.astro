@@ -1,0 +1,28 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-dark border-t border-inacap-red/20 py-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <img src="/inacap-logo.svg" alt="INACAP Logo" class="h-8">
+      </div>
+      <div class="flex space-x-6">
+        <a href="#" class="text-white hover:text-inacap-red transition-colors">
+          <i class="fab fa-discord text-xl"></i>
+        </a>
+        <a href="#" class="text-white hover:text-inacap-red transition-colors">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="#" class="text-white hover:text-inacap-red transition-colors">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+      </div>
+      <div class="mt-4 md:mt-0 text-sm text-gray-400 text-center">
+        <p>© {currentYear} Tarreo INACAP Osorno. Todos los derechos reservados.</p>
+        <p class="mt-1">Desarrollado por <a href="#" class="text-inacap-red hover:text-red-500 transition-colors">Ignacio Sekhard</a> | <a href="#" class="text-inacap-red hover:text-red-500 transition-colors">Spectrum Code Software</a></p>
+      </div>
+    </div>
+  </div>
+</footer>

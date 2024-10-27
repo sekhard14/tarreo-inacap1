@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const teams = [
+  {
+    name: 'Los Byte Masters',
+    career: 'Ingeniería en Informática',
+    members: [
+      { name: 'Juan Pérez', role: 'Capitán' },
+      { name: 'Ana García', role: 'Support' },
+      { name: 'Carlos López', role: 'Entry Fragger' }
+    ],
+    game: 'Valorant'
+  },
+  {
+    name: 'Digital Warriors',
+    career: 'Analista Programador',
+    members: [
+      { name: 'María Rodríguez', role: 'Capitán' },
+      { name: 'Pedro Soto', role: 'Mid Laner' },
+      { name: 'Laura Muñoz', role: 'Jungler' }
+    ],
+    game: 'League of Legends'
+  }
+  // Add more teams as needed
+];
+---
+
+<Layout title="Equipos - Tarreo INACAP 2024">
+  <main class="pt-20">
+    <section class="py-20 bg-gradient-to-b from-dark to-inacap-red/10">
+      <div class="container mx-auto px-4">
+        <h1 class="text-5xl font-permanent-marker text-center mb-12">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-inacap-red">
+            Equipos Participantes
+          </span>
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teams.map(team => (
+            <div class="bg-dark/50 rounded-xl p-6 border border-inacap-red/20 hover:border-inacap-red transition-colors" data-aos="fade-up">
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold">{team.name}</h3>
+                <span class="text-sm text-inacap-red">{team.game}</span>
+              </div>
+              <p class="text-gray-400 mb-4">{team.career}</p>
+              <div class="space-y-3">
+                {team.members.map(member => (
+                  <div class="flex items-center justify-between">
+                    <span>{member.name}</span>
+                    <span class="text-sm text-gray-400">{member.role}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
